@@ -1,0 +1,18 @@
+// Find Minimum
+	public int min_BST(Node x)
+	{
+		if(x == null)
+		{
+			return -1;
+		}
+		
+		if(x.left != null)
+		{
+			return min_BST(x.left);
+		}
+		// Reached leftmost leaf node
+		else
+		{
+			return x.key;
+		}
+	}
