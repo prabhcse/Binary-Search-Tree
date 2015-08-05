@@ -1,0 +1,6 @@
+// Find size
+	public int size_BST(Node x)
+	{
+		if(x == null)	return 0;
+		return x.count;
+	}
