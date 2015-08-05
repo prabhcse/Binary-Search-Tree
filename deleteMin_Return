@@ -1,0 +1,60 @@
+// Delete Minimum and return deleted value
+	public Node deleteMin_Return(Node x)
+	{
+		
+		Deque<Node> stack = new ArrayDeque<Node>();
+		
+		// Keep going left, till left most node reached
+		while(x.left != null)
+		{
+			stack.addFirst(x);
+			x = x.left;
+		}
+		
+		// Loop terminates with left most element
+		
+		// It is possible that stack is empty, root was deleted, either tree is empty, or root was smallest with only right child
+		if(stack.isEmpty())
+		{
+			// Root get reassigned to its right child, the count remain unchanged as subtrees are unaffected.
+			root = x.right;
+			
+			// Remove the additional connections
+			x.right = null;
+			x.left = null;
+			x.count = 1;
+			
+			if(root == null)
+			{
+				System.out.println("\n Tree is empty, after deletion");
+			}
+		}
+		else
+		{
+			boolean parent = false;
+			while(!stack.isEmpty())
+			{
+				// get the node's parent
+				Node temp = stack.pollFirst();
+				
+				if(!parent)
+				{
+					// always traverses to the left
+					temp.left = x.right;
+					
+					// Removing the additional connections
+					x.left = null;
+					x.right = null;
+					x.count = 1;
+					
+					parent = true;
+				}
+				
+				// update count
+				temp.count = 1 + size_BST(temp.left) + size_BST(temp.right);
+			}
+			
+		}
+		
+		return x;
+	}
