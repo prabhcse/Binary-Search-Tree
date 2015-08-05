@@ -1,0 +1,23 @@
+// Sorted Ascending : All nodes have only right child, as children come later, and all are bigger than their roots
+// Sorted Descending : All nodes have only left child, as children come later, and all are smaller than their roots
+// Recursive pre-order traversal
+// Root, Left, Right
+	public void preorder_Traversal(Node index)
+	{
+		
+		if(index == null)
+		{
+			return;
+		}
+		
+		// Prints node Rooted at current subtree
+		// Root of Current Subtree
+		System.out.print(index.key+":"+index.value+"\n");
+		
+		// Left Subtree, non empty
+		preorder_Traversal(index.left);
+		
+		// Right Subtree, non empty
+		preorder_Traversal(index.right);
+		
+	}
