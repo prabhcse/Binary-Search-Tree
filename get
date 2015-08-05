@@ -1,0 +1,26 @@
+// Retrieve the value of given key
+	public String get(int key)
+	{
+		String value = null;
+		
+		Node x = root;
+		
+		while(x != null)	// Returns null if key not found
+		{
+			if(key == x.key)
+			{
+				value = new String(x.value);
+				break;
+			}
+			else if(key < x.key)
+			{
+				x = x.left;
+			}
+			else if(key > x.key)
+			{
+				x = x.right;
+			}
+		}
+		
+		return value;
+	}
