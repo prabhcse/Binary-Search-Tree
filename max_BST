@@ -1,0 +1,19 @@
+// Find Maximum
+	public int max_BST(Node x)
+	{
+		// Only if root of tree itself is null, then return -1
+		if(x == null)
+		{
+			return -1;
+		}
+		
+		if(x.right != null)
+		{
+			return max_BST(x.right);
+		}
+		// Reached rightmost leaf node
+		else
+		{
+			return x.key;
+		}
+	}
