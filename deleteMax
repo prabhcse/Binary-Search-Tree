@@ -1,0 +1,11 @@
+// Delete Maximum
+	public Node deleteMax(Node x)
+	{
+	  if(x == null) return null;
+		if(x.right == null) return x.left;
+		x.right = deleteMin(x.right);
+		
+		// update count
+		x.count = 1 + size_BST(x.left) + size_BST(x.right);
+		return x;
+	}
