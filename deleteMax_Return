@@ -1,0 +1,50 @@
+// Delete Maximum and return result
+	public Node deleteMax_Return(Node x)
+	{
+	  
+	  if(x == null) return x;
+	  
+		Deque<Node> stack = new ArrayDeque<Node>();
+		
+		while(x.right != null)
+		{
+			stack.addFirst(x);
+			x = x.right;
+		}
+		// Loop terminates with rightmost node
+		
+		if(stack.isEmpty())
+		{
+			root = x.left;
+			
+			x.left = null;
+			x.right = null;
+			x.count = 1;
+			
+			if(root == null)
+			{
+				System.out.println("\n Tree is empty after deletion");
+			}
+		}
+		else
+		{
+			boolean parent = true;
+			while(!stack.isEmpty())
+			{
+				Node temp = stack.pollFirst();
+				if(parent)
+				{
+					parent = false;
+					temp.right = x.left;
+					
+					x.left = null;
+					x.right = null;
+					x.count = 1;
+				}
+				// Update count
+				temp.count = 1 + size_BST(temp.left) + size_BST(temp.right);
+			}
+		}
+		
+		return x;
+	}
