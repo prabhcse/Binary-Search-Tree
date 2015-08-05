@@ -1,22 +1,22 @@
 // Due to Symmetric Order: In-order always gives Sorted Output
 // Recursive in-order traversal
 // Left, Root, Right
-	public void inorder_Traversal(Node index)
+public void inorder_Traversal(Node index)
+{
+	
+	// Reached Leaf Node
+	if(index == null)
 	{
-		
-		// Reached Leaf Node
-		if(index == null)
-		{
-			return;
-		}
-		
-		// Left Subtree, non empty
-		inorder_Traversal(index.left);
-		
-		// Root of Current Subtree
-		System.out.print(index.key+":"+index.value+"\n");
-		
-		// Right Subtree, non empty
-		inorder_Traversal(index.right);
-		
+		return;
 	}
+	
+	// Left Subtree, non empty
+	inorder_Traversal(index.left);
+	
+	// Root of Current Subtree
+	System.out.print(index.key+":"+index.value+"\n");
+	
+	// Right Subtree, non empty
+	inorder_Traversal(index.right);
+	
+}
