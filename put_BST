@@ -1,0 +1,30 @@
+// Insert new node to BST
+	public Node put_BST(Node x, Node add)
+	{
+		// Reached a proper(symmetric order) leaf node
+		if(x == null)
+		{
+			return new Node(add.key, add.value);
+		}
+		if(x.key == add.key)
+		{
+			// Update the existing key
+			x.value = add.value;
+		}
+		else if(x.key < add.key)
+		{
+			// New key bigger than current node
+			x.right = put_BST(x.right, add);
+		}
+		else if(x.key > add.key)
+		{
+			// New key smaller than current node
+			x.left = put_BST(x.left, add);
+		}
+		
+		// Added to keep count: left subtree + right subtree + parent itself
+		x.count = 1 + size_BST(x.left) + size_BST(x.right);
+		
+		// forms the updated/inserted new subtree
+		return x;
+	}
