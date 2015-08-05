@@ -1,0 +1,19 @@
+class Node
+	{
+		int key;
+		String value;
+		Node left;
+		Node right;
+		
+		// count represents total elements in the subtree
+		int count;
+		
+		public Node(int key, String value)
+		{
+			this.key = key;
+			this.value = new String(value);
+			this.left = null;
+			this.right = null;
+			this.count = 1;
+		}
+	}
