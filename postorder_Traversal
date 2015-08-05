@@ -1,0 +1,22 @@
+// Sorted Ascending Order: All nodes have only left child(except leaf), if right child present it breaks order
+// Sorted Descending Order: All nodes have only right child(except leaf), children come first and all are bigger than their root
+// Recursive post-order traversal
+// Left, Right, Root
+	public void postorder_Traversal(Node index)
+	{
+		// Reached leaf node
+		if(index == null)
+		{
+			return;
+		}
+		
+		// Left subtree, non empty
+		postorder_Traversal(index.left);
+		
+		// Right Subtree, non empty
+		postorder_Traversal(index.right);
+		
+		// Prints node Rooted at current subtree
+		System.out.print(index.key+":"+index.value+"\n");
+		
+	}
