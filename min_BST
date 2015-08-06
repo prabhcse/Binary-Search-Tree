@@ -1,9 +1,9 @@
 // Find Minimum
-	public int min_BST(Node x)
+public Node min_BST(Node x)
 	{
 		if(x == null)
 		{
-			return -1;
+			return new Node(-1,new String(String.valueOf(-1)));
 		}
 		
 		if(x.left != null)
@@ -13,6 +13,6 @@
 		// Reached leftmost leaf node
 		else
 		{
-			return x.key;
+			return x;
 		}
 	}
