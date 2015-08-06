@@ -1,4 +1,6 @@
 // Delete Minimum and return deleted value
+// Can only be used for x as root.
+// To delete minimum element from a subtree, use deleteMin
 	public Node deleteMin_Return(Node x)
 	{
 		if(x == null)	return null;
