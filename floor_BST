@@ -17,7 +17,7 @@
 		{
 			// Propagate the closest value
 			result = floor_BST(x.right, value);
-			if(x.key > result)
+			if(x.key > result || result == -1)
 			{
 				result = x.key;
 			}
