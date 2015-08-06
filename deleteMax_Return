@@ -1,4 +1,6 @@
 // Delete Maximum and return result
+// Can only be used with x as root
+// To delete maximum element from a subtree, use deleteMax
 	public Node deleteMax_Return(Node x)
 	{
 	  
