@@ -19,9 +19,9 @@
 		{
 			root = x.left;
 			
-			/*x.left = null;
+			x.left = null;
 			x.right = null;
-			x.count = 1;*/
+			x.count = 1;
 			
 			if(root == null)
 			{
@@ -39,9 +39,9 @@
 					parent = false;
 					temp.right = x.left;
 					
-					/*x.left = null;
+					x.left = null;
 					x.right = null;
-					x.count = 1;*/
+					x.count = 1;
 				}
 				// Update count
 				temp.count = 1 + size_BST(temp.left) + size_BST(temp.right);
