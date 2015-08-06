@@ -1,0 +1,34 @@
+// Find Ceiling
+	// Find the ceiling, smallest value which is bigger than or equal to value
+	public int ceiling_BST(Node x, int value)
+	{
+		int result = -1;
+		if(x == null)
+		{
+			return result;
+		}
+		// Found value, return
+		if(x.key == value)
+		{
+			result = x.key;
+		}
+		// Less than, go right
+		else if(x.key < value)
+		{
+			result = ceiling_BST(x.right, value);
+		}
+		// More than, go left
+		else if(x.key > value)
+		{
+			// Propagate the closest value
+			result = ceiling_BST(x.left, value);
+			
+			// Leftmost value in the right subtree is returned
+			if(x.key < result || result == -1)
+			{
+				result = x.key;
+			}
+		}
+		
+		return result;
+	}
