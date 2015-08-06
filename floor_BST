@@ -1,0 +1,32 @@
+// Find Floor
+	// Find the floor: highest value which is less than or equal to value
+	public int floor_BST(Node x, int value)
+	{
+		int result = -1;
+		if(x == null)
+		{
+			return result;
+		}
+		// Found value, return
+		if(x.key == value)
+		{
+			result = x.key;
+		}
+		// Less than, go right
+		if(x.key < value)
+		{
+			// Propagate the closest value
+			result = floor_BST(x.right, value);
+			if(x.key > result)
+			{
+				result = x.key;
+			}
+		}
+		// More than, go left
+		if(x.key > value)
+		{
+			result = floor_BST(x.left, value);
+		}
+		
+		return result;
+	}
